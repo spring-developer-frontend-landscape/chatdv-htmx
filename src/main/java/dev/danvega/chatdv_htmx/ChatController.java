@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 public class ChatController {
 
     private static final Logger log = LoggerFactory.getLogger(ChatController.class);
-
     private final ChatClient chatClient;
 
     public ChatController(ChatClient chatClient) {
@@ -29,7 +28,9 @@ public class ChatController {
         String response = chatClient.call(message);
         model.addAttribute("response",response);
         model.addAttribute("message",message);
-        return "response :: response";
+
+        // template :: fragmentName
+        return "response :: responseFragment";
     }
 
 }
